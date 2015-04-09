@@ -2,7 +2,7 @@
  * AdmixInfer.cpp
  *
  *  Created on: Mar 23, 2015
- *      Author: young
+ *  Author: young
  */
 
 #include <iostream>

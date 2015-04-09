@@ -1,4 +1,4 @@
-AdmixInfer
+AdmixInfer v1.0.0
 =================================================
 Short Description:
 AdmixInfer is designed to optimize the parameters of admixture model
@@ -14,40 +14,52 @@ bash$ tar -zvxf AdmixInfer.tar.gz
 bash$ cd AdmixInfer/src
 bash$ make
 
-After compiling, you will find the executable AdmixInfer, just
+After compiling, you will get the executable AdmixInfer, just
 typing the command below to get help information:
 
 bash$ ./AdmixInfer -h
 
 2. Test with the toy data
 
-bash$ ./AdmixInfer -f ../example/Uygur.seg -m 200 -c 0.01 -o ../example/Uygur.llk
-Which will read the ancestral tracks from Uygur.seg, search the generation from
-1 to 200, the cutoff to discard short tracks is 0.01 Morgan, and finally, the likelihoods
-are save to the file Uygur.llk for further reference
+bash$ ./AdmixInfer -f Uygur.seg -m 200 -c 0.01 -o Uygur.llk
+
+Example explanation:
+AdmixInfer will read the ancestral tracks from Uygur.seg, search for
+the optimal generation from 1 to 200, the cutoff to discard short 
+tracks is 0.01 Morgan, and finally, the likelihoods are save to the 
+file Uygur.llk for further reference.
 
 Results summary is also print to the screen, for example:
 
-Results summary
-Parental-population1: CEU
-Admix-proportion: 0.428372; standard-deviation: 0.00179507
-Admix-time: 55.7721; standard-deviation: 0.419461
-Optimal-model(s): GA(100%); 
-
+==================================================================
+Results Summary
+Parental-population-1: CEU
+Admix-proportion: (0.428372 ± 0.00179507)
+Optimal-model: GA(100%); Optimal-generation: (55.7721 ± 0.419461)
+==================================================================
 
 3. File formats
+
 3.1 Input file format
-AdmixInfer is easy to use, only need one file, in which each line represents the start and
-end points, and which ancestry the track originates from, and chromosome. For example:
+AdmixInfer is easy to use, only need one file, in which each line 
+represents a ancestral track with the start point, end points, from 
+which ancestry the track originates, and from which chromosome. 
+For example:
+
 0.00000000      0.34602058      Yoruba 1
 0.34602058      0.34614778      French 1
 ......
 0.40759031      0.41517938      Yoruba 22
+
 Here start and end points unit are in Morgan.
 
 3.2 Output file format
-AdmixInfer save the likelihoods of each generation searched under different models assumption
-for further reference, the format is straightforward:
+AdmixInfer save the likelihoods of each generation searched under 
+different models assumption for further reference, the format is 
+straightforward, calculated chromosome by chromosome
+
+For example:
+
 chr1
 Generation      HI      GA      CGFR    CGFD
 1       -522.625        -522.625        -522.625        -522.625
@@ -61,29 +73,37 @@ Generation      HI      GA      CGFR    CGFD
 99      328.038 	348.171 	350.288 	351.177
 100     326.962 	347.958 	350.213 	351.21
 
-4. Full Arguments
+4. Full argument list
 -h/--help
-if you forget the usage of any arguments, don't hesitate to use this one
+if you forget the usage of any arguments, don't hesitate to use 
+this one.
 
 -f/--file <filename>
-This argument is required, in which to specify the input file of ancestral tracks, format as
-described previous section
+This argument is required, in which to specify the input file of 
+ancestral tracks, format is described in previous section
 
--m/--max [generation]
-This argument is optional, in which user can specify the maximum generation search from. 
-Default is 500 generation, corresponding ~15000 years before present.
+-m/--maxT [generation]
+This argument is optional, in which user can specify the maximum 
+generation search from. Default is 500 generation, corresponding 
+~15000 (30 year/generation assumed) years before present.
 
 -c/--cutoff [value]
-This argument is optional, in which user can specify the threshold to discard short tracks in 
-case of uncertainty of inference about short tracks. Default is 0, use all the tracks
+This argument is optional, in which user can specify the threshold 
+to discard short tracks in case of uncertainty of inference about 
+short tracks. Default is 0, which use all the tracks.
 
--o/--output [out_filename]
-This argument is also optional, in which user can specify the filename of output, to save
-the likelihoods for each generation under HI, GA, CGFR and CGFD model assumptions
+-o/--output [output_filename]
+This argument is also optional, in which user can specify the 
+filename of output, to save the likelihoods for each generation 
+under HI, GA, CGFR and CGFD model assumptions
 
+5. License
+GNU GENERAL PUBLIC LICENSE Version 3 
+http://www.gnu.org/licenses/gpl-3.0.html
 =================================================
-5. Questions and Suggestions
-Questions and Suggestions are welcomed, feel free to contact xyang619@gmail.com
+6. Questions and Suggestions
+Questions and Suggestions are welcomed, feel free to contact 
+Shawn xyang619@gmail.com
 
 
 
