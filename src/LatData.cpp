@@ -37,7 +37,7 @@ void LatData::readDat(string & fname)
 		stringstream ss(line);
 		double start, end;
 		string pop;
-		string chr;
+		string chr = "U"; //in case of missing chromosome information
 		ss >> start;
 		ss >> end;
 		ss >> pop;
