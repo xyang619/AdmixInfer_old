@@ -9,7 +9,7 @@
 #include "SpecModel.h"
 
 SpecModel::SpecModel(int T, double m) :
-		T_(T), m_(m)
+		mT(T), mm(m)
 {
 	// TODO Auto-generated constructor stub
 }
@@ -21,22 +21,22 @@ SpecModel::~SpecModel()
 
 int SpecModel::getT() const
 {
-	return T_;
+	return mT;
 }
 
 double SpecModel::getM() const
 {
-	return m_;
+	return mm;
 }
 
 void SpecModel::setT(int T)
 {
-	T_ = T;
+	mT = T;
 }
 
 void SpecModel::setM(double m)
 {
-	m_ = m;
+	mm = m;
 }
 
 //calculate sum of the log likelihood, given the distribution and observation

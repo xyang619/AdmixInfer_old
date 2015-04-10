@@ -26,8 +26,8 @@ public:
 	double loglik(std::vector<double> observ, double cutoff = 0) const;
 	virtual double dist(double x, double cutoff = 0) const = 0;
 private:
-	int T_;
-	double m_;
+	int mT;
+	double mm;
 };
 
 #endif /* SPECMODEL_H_ */
