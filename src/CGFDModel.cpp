@@ -20,7 +20,7 @@ CGFDModel::~CGFDModel()
 }
 
 //distribution of CGFD model
-double CGFDModel::dist(double x, double cutoff) const
+double CGFDModel::dist(double x) const
 {
 	int T = getT();
 	double m = getM();

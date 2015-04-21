@@ -20,7 +20,7 @@ CGFRModel::~CGFRModel()
 }
 
 //distribution of CGFR model
-double CGFRModel::dist(double x, double cutoff) const
+double CGFRModel::dist(double x) const
 {
 	int T = getT();
 	double m = getM();
