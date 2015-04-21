@@ -31,7 +31,7 @@ public:
 	double getM() const;
 	void setT(int T);
 	void setM(double m);
-	double loglik(std::vector<double> observ, double cutoff = 0, double length = kInfinity) const;
+	double loglik(const std::vector<double> & observ, double cutoff = 0, double length = kInfinity) const;
 	virtual double dist(double x) const = 0;
 	virtual double getCorrector(double cutoff = 0, double length = kInfinity) const = 0;
 private:

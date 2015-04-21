@@ -39,7 +39,7 @@ void SpecModel::setM(double m)
 }
 
 //calculate sum of the log likelihood, given the distribution and observation
-double SpecModel::loglik(std::vector<double> observ, double cutoff, double length) const
+double SpecModel::loglik(const std::vector<double> &observ, double cutoff, double length) const
 {
 	double llk = 0;
 	for (unsigned int i = 0; i < observ.size(); ++i)
