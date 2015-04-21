@@ -20,10 +20,18 @@ HIModel::~HIModel()
 }
 
 //distribution of HI model
-double HIModel::dist(double x, double cutoff, double length) const
+double HIModel::dist(double x) const
 {
 	int T = getT();
 	double m = getM();
-	return (1 - m) * T * exp(-(1 - m) * T * (x - cutoff));
+	double lambda = T * (1 - m);
+	return lambda * exp(-lambda * x);
+}
+
+double HIModel::getCorrector(double cutoff, double length) const
+{
+	double lambda = getT() * (1 - getM());
+	double corrector = exp(-lambda * cutoff) - exp(-lambda * length);
+	return corrector;
 }
 

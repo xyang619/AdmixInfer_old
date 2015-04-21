@@ -46,8 +46,8 @@ double SpecModel::loglik(std::vector<double> observ, double cutoff, double lengt
 	{
 		llk += log(dist(observ.at(i)));
 	}
-	double cor = getCorrector(cutoff, length);
-	llk -= observ.size() * log(cor);
+	double corrector = getCorrector(cutoff, length);
+	llk -= observ.size() * log(corrector);
 	return llk;
 }
 
