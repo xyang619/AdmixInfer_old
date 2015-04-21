@@ -8,7 +8,7 @@
 #include "Utils.h"
 
 //find the index of max
-int indexOfMax(double * data, int size)
+int indexOfMax(const double * data, int size)
 {
 	double maxVal = data[0];
 	int index = 0;
@@ -22,8 +22,9 @@ int indexOfMax(double * data, int size)
 	}
 	return index;
 }
+
 //perform summation, i.e. return s=∑data
-double sum(vector<double> data)
+double sum(const vector<double> &data)
 {
 	double sum = 0;
 	size_t size = data.size();
@@ -35,14 +36,14 @@ double sum(vector<double> data)
 }
 
 //non-weighted mean, mean = ∑data(i) / n;
-double mean(vector<double> data)
+double mean(const vector<double> &data)
 {
 	return sum(data) / data.size();
 }
 
 //non-weighted variance, given data and mean
 //var = ∑(data(i)-mean)^2/ (n-1)
-double var(vector<double> data, double avg)
+double var(const vector<double> &data, double avg)
 {
 	double sum = 0;
 	size_t size = data.size();
@@ -54,7 +55,7 @@ double var(vector<double> data, double avg)
 }
 
 //weighted mean, mean = ∑data(i)*weight(i)
-double mean(vector<double> data, vector<double> weights)
+double mean(const vector<double> &data, const vector<double> &weights)
 {
 	double sum = 0;
 	size_t size = data.size();
@@ -66,7 +67,7 @@ double mean(vector<double> data, vector<double> weights)
 }
 
 //weighted variance, var = ∑weight(i)*(data(i)-mean)^2
-double var(vector<double> data, vector<double> weights, double avg)
+double var(const vector<double> &data, const vector<double> &weights, double avg)
 {
 	double sum = 0;
 	size_t size = data.size();

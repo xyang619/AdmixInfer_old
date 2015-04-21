@@ -13,10 +13,15 @@
 
 using namespace std;
 
-int indexOfMax(double * data, int size);
-double sum(vector<double> data);
-double mean(vector<double> data);
-double mean(vector<double> data, vector<double> weights);
-double var(vector<double> data, double avg);
-double var(vector<double> data, vector<double> weights, double avg);
+int indexOfMax(const double * data, int size);
+
+double sum(const vector<double> & data);
+
+double mean(const vector<double> & data);
+
+double mean(const vector<double> &data, const vector<double> &weights);
+
+double var(const vector<double> &data, double avg);
+
+double var(const vector<double> &data, const vector<double> &weights, double avg);
 

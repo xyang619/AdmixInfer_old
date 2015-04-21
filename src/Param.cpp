@@ -98,7 +98,7 @@ bool Param::check() const
 //print help information
 void Param::help() const
 {
-	cout << "AdmixInfer v1.0.0" << endl;
+	cout << "AdmixInfer v1.0.1" << endl;
 	cout << "AdmixInfer is designed to optimize the parameters of admixture model via maximum" << endl;
 	cout << "likelihood estimation and figure out the model best fit the data. The optimization" << endl;
 	cout << "is under assumption of HI, GA, CGFR and CGFD model" << endl;
