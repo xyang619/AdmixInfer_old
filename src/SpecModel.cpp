@@ -2,7 +2,7 @@
  * SpecModel.cpp
  *
  *  Created on: Feb 12, 2015
- *      Author: young
+ *  Author: young
  */
 
 #include "SpecModel.h"
