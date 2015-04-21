@@ -15,7 +15,8 @@ class CGFRModel: public SpecModel
 public:
 	CGFRModel(int T = 1, double m = 0.5);
 	~CGFRModel();
-	double dist(double x, double cutoff = 0) const;
+	double dist(double x) const;
+	double getCorrector(double cutoff = 0, double length = kInfinity) const;
 };
 
 #endif /* CGFRMODEL_H_ */

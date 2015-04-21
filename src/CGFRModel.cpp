@@ -24,8 +24,17 @@ double CGFRModel::dist(double x, double cutoff) const
 {
 	int T = getT();
 	double m = getM();
-	double u = pow(m, 1.0 / T);
-	u = T - (1 - m) * u / (1 - u);
-	return u * exp(-u * (x - cutoff));
+	double lambda = pow(m, 1.0 / T);
+	lambda = T - (1 - m) * lambda / (1 - lambda);
+	return lambda * exp(-lambda * x);
+}
+
+double CGFRModel::getCorrector(double cutoff, double length) const
+{
+	int T = getT();
+	double m = getM();
+	double lambda = pow(m, 1.0 / T);
+	double corrector = exp(-lambda * cutoff) - exp(-lambda * length);
+	return corrector;
 }
 
