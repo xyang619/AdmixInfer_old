@@ -5,7 +5,6 @@
  *      Author: young
  */
 
-#include <cmath>
 #include "SpecModel.h"
 
 SpecModel::SpecModel(int T, double m) :
@@ -40,13 +39,15 @@ void SpecModel::setM(double m)
 }
 
 //calculate sum of the log likelihood, given the distribution and observation
-double SpecModel::loglik(std::vector<double> observ, double cutoff) const
+double SpecModel::loglik(std::vector<double> observ, double cutoff, double length) const
 {
 	double llk = 0;
 	for (unsigned int i = 0; i < observ.size(); ++i)
 	{
-		llk += log(dist(observ.at(i), cutoff));
+		llk += log(dist(observ.at(i)));
 	}
+	double cor = getCorrector(cutoff, length);
+	llk -= observ.size() * log(cor);
 	return llk;
 }
 

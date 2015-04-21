@@ -20,7 +20,7 @@ HIModel::~HIModel()
 }
 
 //distribution of HI model
-double HIModel::dist(double x, double cutoff) const
+double HIModel::dist(double x, double cutoff, double length) const
 {
 	int T = getT();
 	double m = getM();
