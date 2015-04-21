@@ -20,24 +20,38 @@ GAModel::~GAModel()
 }
 
 //distribution of GA model
-double GAModel::dist(double x, double cutoff) const
+double GAModel::dist(double x) const
 {
 	int T = getT();
-	double m = getM();
+	double m = 1 - getM();
 	double num = 0;
-	double den = 0;
 	double tmp = 0;
-
+	double lambda = 0;
 	for (int t = 2; t <= T; ++t)
 	{
-		tmp = (T - t + 1) * pow(1 - 1.0 / T, 1 - t);
-		num += tmp * (T - t + 1) * exp(-(1 - m) * (T - t + 1) * x);
-		den += tmp * exp(-(1 - m) * (T - t + 1) * cutoff);
+		lambda = T - t + 1;
+		tmp = lambda * pow(1 - 1.0 / T, 1 - t);
+		num += tmp * lambda * exp(-lambda * m * x);
 	}
+	num = m * (T * T * exp(-m * T * x) + num / T);
 
-	num = (1 - m) * (T * T * exp(-(1 - m) * T * x) + num / T);
-	den = T * exp(-(1 - m) * T * cutoff) + den / T;
+	return num;
+}
 
-	return num / den;
+double GAModel::getCorrector(double cutoff, double length) const
+{
+	int T = getT();
+	double m = 1 - getM();
+	double tmp = 0;
+	double lambda = 0;
+	double corrector = 0;
+	for (int t = 2; t <= T; ++t)
+	{
+		lambda = T - t + 1;
+		tmp = lambda * pow(1 - 1.0 / T, 1 - t);
+		corrector += tmp * (exp(-m * lambda * cutoff) - exp(-m * lambda * length));
+	}
+	corrector = corrector / T + T * (exp(-m * T * cutoff) - exp(-m * T * length));
+	return corrector;
 }
 

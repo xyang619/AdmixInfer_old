@@ -15,7 +15,8 @@ class GAModel: public SpecModel
 public:
 	GAModel(int T = 1, double m = 0.5);
 	~GAModel();
-	double dist(double x, double cutoff = 0) const;
+	double dist(double x) const;
+	double getCorrector(double cutoff = 0, double length = kInfinity) const;
 };
 
 #endif /* GAMODEL_H_ */
